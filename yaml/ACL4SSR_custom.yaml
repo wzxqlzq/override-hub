@@ -20,9 +20,22 @@ proxy-groups:
   - name: ♻️ 自动选择
     type: url-test
     include-all: true
+    filter: (?i)^(?!.*备用).*
     interval: 300
     tolerance: 50
 
+  - name: 🎮 Dota2
+    type: select
+    proxies:
+      - DIRECT
+      - 🇭🇰 香港节点
+      - 🇸🇬 狮城节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
+      - 🇰🇷 韩国节点
+      - 🚀 节点选择
+      - ♻️ 自动选择
+      
   - name: 📲 电报消息
     type: select
     proxies:
@@ -424,6 +437,7 @@ rule-providers:
     type: http
 
 rules:
+  - PROCESS-NAME,dota2.exe,🎮 Dota2
   - "RULE-SET,LocalAreaNetwork,🎯 全球直连"
   - "RULE-SET,UnBan,🎯 全球直连"
   - "RULE-SET,GoogleFCM,📢 谷歌FCM"
