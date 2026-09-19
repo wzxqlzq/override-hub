@@ -17,6 +17,10 @@ proxy-groups:
     include-all: true
     type: select
 
+  - name: 海外券商
+    include-all: true
+    type: select
+
   - name: ♻️ 自动选择
     type: url-test
     include-all: true
@@ -252,6 +256,14 @@ proxy-groups:
 
 
 rule-providers:
+  Futu:
+    url: https://raw.githubusercontent.com/forecho/broker-rules/main/Source/broker/futu.conf
+    path: ./ruleset/Futu.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+
   LocalAreaNetwork:
     url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/LocalAreaNetwork.list
     path: ./ruleset/LocalAreaNetwork.list
@@ -437,8 +449,10 @@ rule-providers:
     type: http
 
 rules:
-  - PROCESS-NAME,FTNN.exe,🚀 节点选择
-  - PROCESS-NAME,cn.futu.trader,🚀 节点选择
+  # 富途域名分流优先于国内直连，适用于路由器无法识别客户端进程的场景。
+  - RULE-SET,Futu,海外券商
+  - PROCESS-NAME,FTNN.exe,海外券商
+  - PROCESS-NAME,cn.futu.trader,海外券商
   - DOMAIN-SUFFIX,e-hentai.org,🚀 节点选择
   - DOMAIN-SUFFIX,exhentai.org,🚀 节点选择
   - DOMAIN-SUFFIX,relingo.net,🚀 节点选择
