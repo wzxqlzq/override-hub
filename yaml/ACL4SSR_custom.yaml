@@ -18,8 +18,12 @@ proxy-groups:
     type: select
 
   - name: 海外券商
-    include-all: true
     type: select
+    proxies:
+      - 🇭🇰 香港节点
+      - 🇸🇬 狮城节点
+      - 🚀 手动切换
+      - ♻️ 自动选择
 
   - name: ♻️ 自动选择
     type: url-test
