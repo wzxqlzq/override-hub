@@ -256,9 +256,17 @@ proxy-groups:
 
 
 rule-providers:
-  Futu:
-    url: https://raw.githubusercontent.com/forecho/broker-rules/main/Source/broker/futu.conf
-    path: ./ruleset/Futu.list
+  Broker:
+    url: https://raw.githubusercontent.com/forecho/broker-rules/main/rule/Clash/Broker.yaml
+    path: ./ruleset/Broker.yaml
+    behavior: classical
+    interval: 86400
+    format: yaml
+    type: http
+
+  BrokerSupplement:
+    url: https://raw.githubusercontent.com/LingJingMaster/Shadowrocket-Rules/main/HK_Broker.list
+    path: ./ruleset/BrokerSupplement.list
     behavior: classical
     interval: 86400
     format: text
@@ -449,8 +457,9 @@ rule-providers:
     type: http
 
 rules:
-  # 富途域名分流优先于国内直连，适用于路由器无法识别客户端进程的场景。
-  - RULE-SET,Futu,海外券商
+  # 海外券商域名和 IP 分流优先于国内直连规则。
+  - RULE-SET,Broker,海外券商
+  - RULE-SET,BrokerSupplement,海外券商
   - PROCESS-NAME,FTNN.exe,海外券商
   - PROCESS-NAME,cn.futu.trader,海外券商
   - DOMAIN-SUFFIX,e-hentai.org,🚀 节点选择
