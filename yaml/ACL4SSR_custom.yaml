@@ -17,7 +17,7 @@ proxy-groups:
     include-all: true
     type: select
 
-  - name: 海外券商
+  - name: 💹 海外券商
     type: select
     proxies:
       - 🇭🇰 香港节点
@@ -450,10 +450,10 @@ rule-providers:
 
 rules:
   # 海外券商域名和 IP 分流优先于国内直连规则。
-  - RULE-SET,Broker,海外券商
-  - RULE-SET,BrokerSupplement,海外券商
-  - PROCESS-NAME,FTNN.exe,海外券商
-  - PROCESS-NAME,cn.futu.trader,海外券商
+  - RULE-SET,Broker,💹 海外券商
+  - RULE-SET,BrokerSupplement,💹 海外券商
+  - PROCESS-NAME,FTNN.exe,💹 海外券商
+  - PROCESS-NAME,cn.futu.trader,💹 海外券商
   - DOMAIN-SUFFIX,e-hentai.org,🚀 节点选择
   - DOMAIN-SUFFIX,exhentai.org,🚀 节点选择
   - DOMAIN-SUFFIX,relingo.net,🚀 节点选择
