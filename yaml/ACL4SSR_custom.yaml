@@ -32,18 +32,6 @@ proxy-groups:
     interval: 300
     tolerance: 50
 
-  - name: 🎮 Dota2
-    type: select
-    proxies:
-      - DIRECT
-      - 🇭🇰 香港节点
-      - 🇸🇬 狮城节点
-      - 🇯🇵 日本节点
-      - 🇺🇲 美国节点
-      - 🇰🇷 韩国节点
-      - 🚀 节点选择
-      - ♻️ 自动选择
-      
   - name: 📲 电报消息
     type: select
     proxies:
